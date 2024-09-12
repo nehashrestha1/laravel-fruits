@@ -6,8 +6,8 @@ use App\Http\Controllers\HeroController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Admin\FileController;
-use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SettingController;
 
@@ -56,6 +56,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('sliders', SliderController::class);
     Route::resource('testimonials', TestimonialController::class);
     Route::resource('setting', SettingController::class);
+    Route::resource('file', FileController::class);
+
 
 
 

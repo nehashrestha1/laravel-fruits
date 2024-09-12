@@ -34,32 +34,32 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Site Key</th>
-                                                            <th>Site Value</th>
+                                                            <th>Name</th>
+                                                            <th>path</th>
                                                             <th>Status</th>
                                                             <th>Actions</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody class="table-border-bottom-0">
-                                                        @foreach ($settings as $setting)
+                                                        @foreach ($files as $file)
                                                         <tr>
                                                             <th scope="row">{{ $loop->iteration }}</th>
-                                                            <td>{{ $setting->site_key }}</td>
-                                                            <td>{{ $setting->site_value }}</td>
-                                                            <td>{{ $setting->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                                            <td>{{ $file->name }}</td>
+                                                            <td>{{ $file->path }}</td>
+                                                            <td>{{ $file->status == 1 ? 'Active' : 'Inactive' }}</td>
                                                             <td>
                                                                 <div class="dropdown">
                                                                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                                                         <i class="bx bx-dots-vertical-rounded"></i>
                                                                     </button>
                                                                     <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="{{ route('setting.edit', $setting->id) }}">
+                                                                        <a class="dropdown-item" href="{{ route('file.edit', $file->id) }}">
                                                                             <i class="bx bx-edit-alt me-1"></i> Edit
                                                                         </a>
-                                                                        <form action="{{ route('setting.destroy', $setting->id) }}" method="POST" style="display:inline;">
+                                                                        <form action="{{ route('file.destroy', $file->id) }}" method="POST" style="display:inline;">
                                                                             @csrf
                                                                             @method('DELETE')
-                                                                            <button type="submit" class="dropdown-item" onclick="return confirm('Do you want to delete this setting?');">
+                                                                            <button type="submit" class="dropdown-item" onclick="return confirm('Do you want to delete this file?');">
                                                                                 <i class="bx bx-trash me-1"></i> Delete
                                                                             </button>
                                                                         </form>
