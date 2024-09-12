@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <a href="{{ route('admin.products.create') }}" class="btn btn-primary mb-3">Add New Product</a>
+    <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Add New Product</a>
 
     <table class="table table-striped">
         <thead>
@@ -30,12 +30,13 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
+                    <td><img src="{{asset('uploads/'.$product->image)}}" alt="" width="100" height="100"></td>
                     <td>${{ number_format($product->price, 2) }}</td>
                     <td>{{ $product->qty }}</td>
                     <td>{{ $product->status == 1 ? 'Active' : 'Inactive' }}</td>
                     <td>
-                        <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" style="display:inline-block;">
+                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>

@@ -1,21 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<div class="layout-wrapper layout-content-navbar">
-    <div class="layout-container">
-        <!-- Sidebar -->
-        @include('layouts.sidebar')
-        <!-- / Sidebar -->
 
-        <!-- Layout container -->
-        <div class="layout-page">
-            <!-- Navbar -->
-            @include('layouts.navbar')
-            <!-- / Navbar -->
-
-            <!-- Content wrapper -->
-            <div class="content-wrapper">
-                <!-- Content -->
                 <div class="container-xxl flex-grow-1 container-p-y">
                     <h4 class="fw-bold py-3 mb-4">
                         <span class="text-muted fw-light">Sliders/</span> Add Slider

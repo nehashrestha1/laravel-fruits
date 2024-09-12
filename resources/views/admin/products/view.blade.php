@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <a href="{{ route('admin.products.index') }}" class="btn btn-primary mt-3">Back to Products List</a>
+    <a href="{{ route('products.index') }}" class="btn btn-primary mt-3">Back to Products List</a>
 </div>
 
 @endsection

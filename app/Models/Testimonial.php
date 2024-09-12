@@ -8,15 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Testimonial extends Model
 {
     use HasFactory;
-    protected $fillable=[
-    Schema::create('testimonials', function (Blueprint $table) {
-        $table->id();
-        $table->string('message');
-        $table->string('name');
-        $table->string('position');
-        $table->string('image')->nullable();
-        $table->timestamps();
-    })];
+    protected $fillable=['id','message','name','position','image'];
+    
 }
 
 

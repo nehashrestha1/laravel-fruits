@@ -1,24 +1,11 @@
-    @extends('admin.layouts.main')
+@extends('admin.layouts.main')
 
-    @section('content')
-    <body>
-        <!-- Layout wrapper -->
-        <div class="layout-wrapper layout-content-navbar">
-            <div class="layout-container">
-                <!-- Menu -->
-                <!-- / Menu -->
-
-                <!-- Layout container -->
-                <div class="layout-page">
-                    <!-- Navbar -->
-                    <!-- / Navbar -->
-
-                    <!-- Content wrapper -->
-                    <div class="content-wrapper">
+@section('content')
+>
                         <!-- Content -->
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <h4 class="fw-bold py-3 mb-4">
-                                <span class="text-muted fw-light">Facts</span> Add Fact
+                                <span class="text-muted fw-light">Facts</span> Add Facts data
                             </h4>
 
                             <!-- Basic Layout & Basic with Icons -->
@@ -26,11 +13,8 @@
                                 <!-- Basic with Icons -->
                                 <div class="col-xxl">
                                     <div class="card mb-4">
-                                        <div class="card-header d-flex align-items-center justify-content-between">
-                                            <h5 class="mb-0">Basic with Icons</h5>
-                                            <small class="text-muted float-end">Merged input group</small>
-                                        </div>
                                         <div class="card-body">
+
                                             <form action="{{ route('facts.store') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
@@ -78,6 +62,7 @@
                                                     <button type="submit" name="save" class="btn btn-primary">Submit</button>
                                                 </div>
                                             </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -92,4 +77,4 @@
             <!-- / Layout wrapper -->
         </div>
     </body>
-    @endsection
+@endsection

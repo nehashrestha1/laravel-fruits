@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SettingController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,8 +28,8 @@ Route::resource('hero', 'App\Http\Controllers\HeroController');
 Route::middleware('auth')->group(function () {
 
     // Route::get('/hero', [HeroController::class, 'index'])->name('hero.index');
-// Route::get('/hero/{id}/edit', [HeroController::class, 'edit'])->name('hero.edit');
-// Route::delete('/hero/{id}', [HeroController::class, 'destroy'])->name('hero.destroy');
+    // Route::get('/hero/{id}/edit', [HeroController::class, 'edit'])->name('hero.edit');
+    // Route::delete('/hero/{id}', [HeroController::class, 'destroy'])->name('hero.destroy');
 });
 
 

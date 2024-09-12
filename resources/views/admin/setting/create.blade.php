@@ -2,20 +2,16 @@
 
 @section('content')
 
-    <body>
-        <!-- Layout wrapper -->
-        <div class="layout-wrapper layout-content-navbar">
-            <div class="layout-container">
-                <!-- Menu -->
+            <!-- Menu -->
                 <!-- / Menu -->
 
                 <!-- Layout container -->
-                <div class="layout-page">
+               
                     <!-- Navbar -->
                     <!-- / Navbar -->
 
                     <!-- Content wrapper -->
-                    <div class="content-wrapper">
+                  
                         <!-- Content -->
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <h4 class="fw-bold py-3 mb-4">
