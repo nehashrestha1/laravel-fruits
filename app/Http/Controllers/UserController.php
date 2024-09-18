@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -36,7 +37,7 @@ class UserController extends Controller
             'status' => 'required',
         ]);
 
-        $user = new Users;
+        $user = new User;
         $user->name = $request->name;
         $user->title = $request->title;
         $user->email_verified_at = $request->email_verified_at;
@@ -78,7 +79,7 @@ class UserController extends Controller
             'status' => 'required',
         ]);
 
-        $user = new Users;
+        $user = new User;
         $user->name = $request->name;
         $user->title = $request->title;
         $user->email_verified_at = $request->email_verified_at;

@@ -36,9 +36,9 @@
                                                     <span class="input-group-text"><i class="bx bx-category"></i></span>
                                                     <select class="form-select" name="category_id" required>
                                                         <option selected disabled>Select category</option>
-                                                        @foreach ($categories as $category)
+                                                        {{-- @foreach ($categories as $category)
                                                             <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                                        @endforeach
+                                                        @endforeach --}}
                                                     </select>
                                                 </div>
                                             </div>
@@ -88,7 +88,7 @@
                 </div>
                 <!-- / Content -->
 
-                @include('layouts.footer')
+                @include('admin.layouts.footer')
             </div>
         </div>
     </div>

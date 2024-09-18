@@ -7,7 +7,7 @@
                     <!-- Content -->
 
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Users/</span> Add User</h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">facts/</span> Add fact</h4>
 
                         <!-- Basic Layout & Basic with Icons -->
                         <div class="row">

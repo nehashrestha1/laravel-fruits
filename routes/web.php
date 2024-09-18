@@ -7,14 +7,14 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FileController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllersphp\ContactController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/',[FrontendController::class,'index']);
+Route::get('/about',[FrontendController::class,'about'])->name('about');
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,12 +34,6 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-Route::get('users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('users', [UserController::class, 'store'])->name('users.store');
-Route::get('users', [UserController::class, 'index'])->name('users.index'); // Assuming you have an index method to list users.
-
-
 // Route::resource('files', FileController::class);
 // Route::middleware('auth')->group(function () {
 
@@ -52,13 +46,21 @@ Route::get('users', [UserController::class, 'index'])->name('users.index'); // A
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('products', ProductController::class);
+    // Route::resource('products',  ContactController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('sliders', SliderController::class);
     Route::resource('testimonials', TestimonialController::class);
     Route::resource('setting', SettingController::class);
     Route::resource('file', FileController::class);
+    Route::resource('users', UserController::class);
 
 
+
+
+    // Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+    // Route::post('users', [UserController::class, 'store'])->name('users.store');
+    // Route::get('users', [UserController::class, 'index'])->name('users.index'); // Assuming you have an index method to list users.
+    
 
 
     // Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');

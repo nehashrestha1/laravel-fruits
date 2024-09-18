@@ -161,7 +161,7 @@
                 <li class="menu-item">
                     <a href="{{ route('facts.create') }}" class="menu-link">
                         <div data-i18n="Without menu">Add Facts</div>
-                    </a>`1 `1
+                    </a>
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('facts.index') }}" class="menu-link">
