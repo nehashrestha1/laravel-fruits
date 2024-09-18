@@ -1,39 +1,101 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function create()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        return view('users.create');
+        $users = User::all();
+        return view('admin.users.index', compact(var_name: 'users'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('admin.users.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|unique:users',
-            'phone' => 'nullable|string|max:20',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|max:50',
-            'status' => 'required|in:Pending,In Progress,Completed',
+            'name' => 'required',
+            'email' => 'required',
+            'email_verified_at' => 'required',
+            'password' => 'required',
+            'status' => 'required',
         ]);
 
-        $user = new User();
+        $user = new Users;
         $user->name = $request->name;
-        $user->username = $request->username;
-        $user->phone = $request->phone;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->role = $request->role;
+        $user->title = $request->title;
+        $user->email_verified_at = $request->email_verified_at;
+        $user->password = $request->password;
         $user->status = $request->status;
         $user->save();
 
-        return redirect()->route('users.index')->with('success', 'User created successfully.');
+        return redirect()->route('users.index');
+    }
+    
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $user = user::findOrFail($id);
+        return view('admin.users.edit', compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'email_verified_at' => 'required',
+            'password' => 'required',
+            'status' => 'required',
+        ]);
+
+        $user = new Users;
+        $user->name = $request->name;
+        $user->title = $request->title;
+        $user->email_verified_at = $request->email_verified_at;
+        $user->password = $request->password;
+        $user->status = $request->status;
+        $user->save();
+
+        return redirect()->route('users.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users.index');
     }
 }

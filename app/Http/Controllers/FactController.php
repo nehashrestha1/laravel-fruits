@@ -68,6 +68,7 @@ class FactController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $request->validate([
             'icon' => 'required',
             'title' => 'required',
@@ -75,7 +76,7 @@ class FactController extends Controller
             'status' => 'required',
         ]);
 
-        $fact = Fact::findOrFail($id);
+        $fact = new Fact;
         $fact->icon = $request->icon;
         $fact->title = $request->title;
         $fact->number = $request->number;
